@@ -107,11 +107,13 @@ func DeCompress(zipFile, dest string) error {
 			continue
 		}
 		fr, err := file.Open()
+		//nolint
 		defer fr.Close()
 		if err != nil {
 			return err
 		}
 		fw, err := os.OpenFile(p, os.O_CREATE|os.O_RDWR|os.O_TRUNC, file.Mode())
+		//nolint
 		defer fw.Close()
 		if err != nil {
 			return err
